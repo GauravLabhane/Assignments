@@ -1,21 +1,21 @@
 
-//Method 1
-var myFunc1 = function (value) {
-  setTimeout(function () {
-    console.log(value);
-    if (value == 50) {
-      console.log("Bye");
-    }
-  }, value * 1000);
+// //Method 1
+// var myFunc1 = function (value) {
+//   setTimeout(function () {
+//     console.log(value);
+//     if (value == 50) {
+//       console.log("Bye");
+//     }
+//   }, value * 1000);
 
-};
+// };
 
-function method1() {
-  for (var i = 1; i < 51; i++) {
-    myFunc1(i);
-  }
-}
-// method1();
+// function method1() {
+//   for (var i = 1; i < 51; i++) {
+//     myFunc1(i);
+//   }
+// }
+// // method1();
 
 
 
