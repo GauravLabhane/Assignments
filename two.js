@@ -5,38 +5,66 @@ function addAsynchronously(a, b, callback) {
   }, 10 * Math.random());
 }
 
-var sum = 0;
-var i = 0;
-// flag used to check if all numbers are added
-if (numbersToBeAdded.length % 2 != 0) {
-  var flag = -1
-}
-else {
-  var flag = 0;
+// var sum = 0;
+// var i = 0;
+// // flag used to check if all numbers are added
+// if (numbersToBeAdded.length % 2 != 0) {
+//   var flag = -1
+// }
+// else {
+//   var flag = 0;
+// }
+
+// //Created callback function which will add the current sum value 
+// //to the sum two numbers given to parent function
+// var myCallback = function (x, y) {
+//   sum += y;
+//   flag = flag + 2;
+//   if (flag == Math.ceil(numbersToBeAdded.length)) {
+//     console.log(sum);
+//   }
+// }
+
+// // loop itterates taking two values at a time from given arrray
+// // in case of the length of given array is odd, first number added with 0 and loop itterated once
+// while (i < numbersToBeAdded.length - 1) {
+//   if (numbersToBeAdded.length % 2 != 0 && i == 0) {
+//     addAsynchronously(0, numbersToBeAdded[i], fun);
+//     i = i + 1;
+//   }
+//   else {
+//     addAsynchronously(numbersToBeAdded[i], numbersToBeAdded[i + 1], myCallback);
+//     i = i + 2;
+//   }
+// }
+
+
+sum = 0;
+i = 0;
+var myFunc2 = function () {
+
+  addAsynchronously(sum, numbersToBeAdded[i], myCallback2);
+  i = i + 1;
 }
 
-//Created callback function which will add the current sum value 
-//to the sum two numbers given to parent function
-var myCallback = function (x, y) {
-  sum += y;
-  flag = flag + 2;
-  if (flag == Math.ceil(numbersToBeAdded.length)) {
-    console.log(sum);
-  }
-}
 
-// loop itterates taking two values at a time from given arrray
-// in case of the length of given array is odd, first number added with 0 and loop itterated once
-while (i < numbersToBeAdded.length - 1) {
-  if (numbersToBeAdded.length % 2 != 0 && i == 0) {
-    addAsynchronously(0, numbersToBeAdded[i], fun);
-    i = i + 1;
+var myCallback2 = function (x, y) {
+  sum = y;
+  if (i < numbersToBeAdded.length) {
+    addAsynchronously(sum, numbersToBeAdded[i], myCallback2);
+    i += 1;
   }
   else {
-    addAsynchronously(numbersToBeAdded[i], numbersToBeAdded[i + 1], myCallback);
-    i = i + 2;
+    console.log(sum);
   }
+
 }
+
+myFunc2();
+
+
+
+
 
 
 
